@@ -13,8 +13,8 @@ class Channel:
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
-        api_key: 'AIzaSyCLDtohxY9KfK3s-GucDP2zp2MyTf5hy34'
-        youtube = build('youtube', 'v3', developerKey='AIzaSyCLDtohxY9KfK3s-GucDP2zp2MyTf5hy34')
+        api_key: str = os.getenv('YT_API_Key')
+        youtube = build('youtube', 'v3', developerKey=api_key)
         channel_id = 'UCwHL6WHUarjGfUM_586me8w'
         dict_to_print = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
         print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
