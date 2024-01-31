@@ -17,15 +17,6 @@ class Channel:
         self.subscriber_count = self.youtube["items"][0]["statistics"]["subscriberCount"]
         self.video_count = self.youtube["items"][0]["statistics"]["videoCount"]
         self.view_count = self.youtube["items"][0]["statistics"]["viewCount"]
-        self.data = {"title": self.title, "description": self.description, "url": self.url,
-                     "subscriber_count": self.subscriber_count, "video_count": self.video_count,
-                     "view_count": self.view_count}
-
-    # def print_info(self) -> None:
-    #     """Выводит в консоль информацию о канале."""
-    #     youtube = build('youtube', 'v3', developerKey=self.api_key)
-    #     dict_to_print = youtube.channels().list(id=self.channel_id, part='snippet,statistics').execute()
-    #     print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
