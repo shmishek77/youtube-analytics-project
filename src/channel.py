@@ -40,10 +40,15 @@ class Channel:
     def channel_id(self, channel_id):
         self.__channel_id = channel_id
 
-    def to_json(self, filename) -> None:
-        """
-        Метод, сохраняющий в файл значения
-        атрибутов экземпляра `Channel`
-        """
-        with open(filename, "w") as file:
-            json.dump(self.youtube, file)
+    def to_json(self, filename):
+        json_data = {
+            'channel_id': self.__channel_id,
+            'title': self.title,
+            'descrition': self.description,
+            'url': self.url,
+            'subscriber_count': self.subscriber_count,
+            'videoCount': self.video_count,
+            'viewCount': self.view_count
+        }
+        with open(filename, 'w', encoding="utf-8") as f:
+            f.write(json.dumps(json_data, ensure_ascii=False, indent=4))
